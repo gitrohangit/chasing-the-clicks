@@ -10,11 +10,17 @@ function App() {
     if (storedClicks) {
       setClicks(parseInt(storedClicks));
     }
+
+    const storedClickData = localStorage.getItem("clickData");
+    if (storedClickData) {
+      setClickData(JSON.parse(storedClickData));
+    }
   }, []);
 
   useEffect(() => {
     localStorage.setItem("clicks", clicks.toString());
-  }, [clicks]);
+    localStorage.setItem("clickData", JSON.stringify(clickData));
+  }, [clicks, clickData]);
 
   const handleClick = () => {
     setClicks((prevClicks) => prevClicks + 1);
