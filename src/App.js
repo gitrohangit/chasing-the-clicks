@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
   const [clicks, setClicks] = useState(0);
@@ -34,10 +35,16 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Click count: {clicks}</h1>
-      <button onClick={handleClick}>Click me!</button>
-      <table>
+    <div className="container">
+      <h1 className="title">Chasing the Clicks</h1>
+      <p className="subtitle">Click the button and see where the clicks come from!</p>
+      <div className="click-wrapper">
+        <button className="click-button" onClick={handleClick}>
+          Click me!
+        </button>
+        <span className="click-count">{clicks}</span>
+      </div>
+      <table className="click-table">
         <thead>
           <tr>
             <th>Location</th>
